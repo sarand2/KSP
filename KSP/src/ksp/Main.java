@@ -1,37 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ksp;
 
+import java.io.IOException;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Admin
- */
-public class Main extends Application {
-    
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("KSPFXML.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
+/** Main application class for the login demo application */
+public class Main extends Application {
+  public static void main(String[] args) { launch(args); }
+  @Override public void start(Stage stage) throws IOException {
+    Scene scene = new Scene(new StackPane());
     
+    LoginManager loginManager = new LoginManager(scene,stage);
+    loginManager.showLoginScreen();
+    
+    stage.setScene(scene);
+    stage.show();
+  }
 }
