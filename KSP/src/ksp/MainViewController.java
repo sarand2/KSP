@@ -8,9 +8,7 @@ import javafx.scene.control.*;
 public class MainViewController {
   @FXML private Button logoutButton;
   @FXML private Label  sessionLabel;
-  @FXML private Button backButton;
-    @FXML
-    private Button addNew;
+  @FXML private Button sandeliavimasButton;
   
   public void initialize() {}
   
@@ -18,6 +16,11 @@ public class MainViewController {
     sessionLabel.setText(sessionID);
     logoutButton.setOnAction((ActionEvent event) -> {
         loginManager.logout();
+    });
+    
+    sandeliavimasButton.setOnAction((ActionEvent event) -> {
+        MainViewManager mainManager = new MainViewManager(loginManager.getScene(), loginManager.getStage());
+        mainManager.navigateStorage(loginManager, sessionID);
     });
   }
 }

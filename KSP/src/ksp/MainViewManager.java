@@ -1,10 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ksp;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -20,4 +20,28 @@ public class MainViewManager {
     this.scene = scene;
     this.stage = stage;
   }
+
+    public void navigateStorage(final LoginManager loginManager, String sessionID) {
+        showStorageView(loginManager, sessionID);
+    }
+
+    private void showStorageView(final LoginManager loginManager, String sessionID) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("sandeliavimas.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            SandeliavimasController controller = 
+                loader.<SandeliavimasController>getController();
+            controller.initView(this, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

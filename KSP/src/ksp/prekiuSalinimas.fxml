@@ -19,8 +19,8 @@
                   <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="489.0">
                     <items>
                         <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
-                        <Label fx:id="sessionLabel" text="Sesija" />
-                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="355.0">
+                        <Label fx:id="sessionLabel" prefHeight="17.0" prefWidth="316.0" text="Sesija" />
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="72.0">
                            <children>
                               <Button fx:id="backButton" mnemonicParsing="false" text="Atgal" />
                            </children>
