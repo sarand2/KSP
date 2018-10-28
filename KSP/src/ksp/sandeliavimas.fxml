@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
@@ -21,6 +22,11 @@
                     <items>
                         <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
                         <Label fx:id="sessionLabel" text="Sesija" />
+                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="348.0">
+                           <children>
+                              <Button fx:id="backButton" mnemonicParsing="false" text="Atgal" />
+                           </children>
+                        </HBox>
                     </items>
                   </ToolBar>
                   <Pane prefHeight="550.0" prefWidth="550.0">
@@ -38,22 +44,22 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Kurjeriai">
+                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių pridėjimas">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Ataskaitos" GridPane.columnIndex="1">
+                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių šalinimas" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Valdymas" GridPane.rowIndex="1">
+                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paskirstymas" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button fx:id="sandeliavimasButton" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Sandėliavimas" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paieška" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="5.0" top="5.0" />
                                  </GridPane.margin>

@@ -8,15 +8,16 @@ import javafx.scene.control.*;
 public class MainViewController {
   @FXML private Button logoutButton;
   @FXML private Label  sessionLabel;
+  @FXML private Button backButton;
+    @FXML
+    private Button addNew;
   
   public void initialize() {}
   
   public void initSessionID(final LoginManager loginManager, String sessionID) {
     sessionLabel.setText(sessionID);
-    logoutButton.setOnAction(new EventHandler<ActionEvent>() {
-      @Override public void handle(ActionEvent event) {
+    logoutButton.setOnAction((ActionEvent event) -> {
         loginManager.logout();
-      }
     });
   }
 }
