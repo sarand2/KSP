@@ -28,7 +28,28 @@ public class MainViewManager {
   public Stage getStage() {
       return this.stage;
   }
-
+  public void navigateCouriers(final LoginManager loginManager, String sessionID) {
+      showCourierView(loginManager, sessionID);
+  }
+  public void showCourierView(final LoginManager loginManager, String sessionID){
+      try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("couriersview.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            CouriersController controller = 
+                loader.<CouriersController>getController();
+            controller.initView(this, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
     public void navigateStorage(final LoginManager loginManager, String sessionID) {
         showStorageView(loginManager, sessionID);
     }
