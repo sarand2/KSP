@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ksp;
+package ksp.Couriers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,8 +12,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import ksp.LoginManager;
+import ksp.MainViewManager;
 
-public class findCourierLocationController implements Initializable {
+public class deleteCourierController implements Initializable {
 
     @FXML
     private Button logoutButton;
@@ -24,7 +27,7 @@ public class findCourierLocationController implements Initializable {
     @FXML
     private Button backButton;
     @FXML
-    private Button showOnMap;
+    private Button delete;
 
     /**
      * Initializes the controller class.
@@ -34,7 +37,7 @@ public class findCourierLocationController implements Initializable {
         // TODO
     }    
 
-    void initView(CouriersManager couriersManager, MainViewManager mainManager, LoginManager loginManager, String sessionID) {
+    void initView(MainViewManager mainManager, LoginManager loginManager, String sessionID) {
         sessionLabel.setText(sessionID);
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();

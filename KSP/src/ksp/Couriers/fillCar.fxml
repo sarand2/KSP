@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.Couriers.FillCarController">
+  <children>
+    <StackPane>
+      <children>
+        <VBox spacing="10.0">
+          <children>
+                  <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="489.0">
+                    <items>
+                        <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
+                        <Label fx:id="sessionLabel" prefHeight="17.0" prefWidth="134.0" text="Sesija" />
+                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="254.0">
+                           <children>
+                              <Button fx:id="main" mnemonicParsing="false" text="Pradžia" />
+                              <Button fx:id="backButton" mnemonicParsing="false" text="Atgal">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin></Button>
+                           </children>
+                        </HBox>
+                    </items>
+                  </ToolBar>
+                  <Pane prefHeight="550.0" prefWidth="550.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label layoutX="175.0" layoutY="14.0" text="Automobilio pakrovimas" />
+                        <TableView layoutX="15.0" layoutY="31.0" prefHeight="265.0" prefWidth="450.0">
+                          <columns>
+                            <TableColumn prefWidth="53.0" text="Kodas" />
+                            <TableColumn prefWidth="90.0" text="Pavadinimas" />
+                              <TableColumn prefWidth="52.0" text="Svoris" />
+                              <TableColumn prefWidth="46.0" text="Kiekis" />
+                              <TableColumn prefWidth="105.0" text="Adresas" />
+                              <TableColumn minWidth="5.0" prefWidth="103.0" text="Užsakovas" />
+                          </columns>
+                        </TableView>
+                        <GridPane layoutX="15.0" layoutY="315.0" prefHeight="45.0" prefWidth="450.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="getList" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Gauti sąrašą">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="accept" mnemonicParsing="false" prefHeight="76.0" prefWidth="237.0" text="Patvirtinti" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </Pane>
+          </children>
+        </VBox>
+      </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+    </StackPane>
+  </children>
+   <padding>
+      <Insets bottom="10.0" />
+   </padding>
+</StackPane>
