@@ -44,22 +44,22 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių pridėjimas">
+                              <Button fx:id="add" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių pridėjimas">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių šalinimas" GridPane.columnIndex="1">
+                              <Button fx:id="delete" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių šalinimas" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paskirstymas" GridPane.rowIndex="1">
+                              <Button fx:id="distribute" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paskirstymas" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paieška" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Button fx:id="search" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paieška" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="5.0" top="5.0" />
                                  </GridPane.margin>

@@ -20,6 +20,14 @@ public class MainViewManager {
     this.scene = scene;
     this.stage = stage;
   }
+  
+  public Scene getScene() {
+      return this.scene;
+  }
+  
+  public Stage getStage() {
+      return this.stage;
+  }
 
     public void navigateStorage(final LoginManager loginManager, String sessionID) {
         showStorageView(loginManager, sessionID);
