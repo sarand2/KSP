@@ -1,10 +1,12 @@
-package ksp;
+package ksp.Couriers;
 
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import ksp.LoginManager;
+import ksp.MainViewManager;
 
-public class CouriersController {
+public class AdminController {
     @FXML private Button logoutButton;
     @FXML private Label  sessionLabel;
     @FXML private Button backButton;
@@ -26,7 +28,7 @@ public class CouriersController {
         backButton.setOnAction((ActionEvent event) -> {
             loginManager.authenticated(sessionID);
         });
-        CouriersManager couriersManager = new CouriersManager(mainManager.getScene(), mainManager.getStage());
+        AdminManager couriersManager = new AdminManager(mainManager.getScene(), mainManager.getStage());
         add.setOnAction((ActionEvent event) -> {
             couriersManager.navigateAdd(mainManager, loginManager, sessionID);
         });

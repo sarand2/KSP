@@ -41,14 +41,13 @@ public class LoginController {
    * otherwise, return null.
    */   
   private String authorize() {
-    return 
-      "admin".equals(user.getText()) && "admin".equals(password.getText()) 
+    return
+            user.getText().equals("admin") && password.getText().equals("admin")|| user.getText().equals("user") && password.getText().equals("user") || user.getText().equals("courier") && password.getText().equals("courier")
             ? generateSessionID(user.getText()) 
             : null;
   }
   
   private static int sessionID = 0;
-
   private String generateSessionID(String name) {
     sessionID++;
     return name + " - session " + sessionID;

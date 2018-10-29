@@ -1,5 +1,6 @@
 package ksp;
 
+import ksp.Couriers.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,12 +30,17 @@ public class MainViewManager {
       return this.stage;
   }
   public void navigateCouriers(final LoginManager loginManager, String sessionID) {
-      showCourierView(loginManager, sessionID);
+      if(sessionID.contains("admin")){
+          showCourierViewAdmin(loginManager, sessionID);
+      }
+      if(sessionID.contains("courier")){
+          showCourierViewCourier(loginManager, sessionID);
+      }
   }
-  public void showCourierView(final LoginManager loginManager, String sessionID){
+  public void showCourierViewAdmin(final LoginManager loginManager, String sessionID){
       try {
             FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("couriersview.fxml")
+                getClass().getResource("Couriers/adminView.fxml")
             );
             scene.setRoot((Parent) loader.load());
             stage.setMinWidth(500);
@@ -43,8 +49,27 @@ public class MainViewManager {
             stage.setMaxHeight(500);
             stage.setHeight(500);
             stage.setWidth(500);
-            CouriersController controller = 
-                loader.<CouriersController>getController();
+            ksp.Couriers.AdminController controller = 
+                loader.<ksp.Couriers.AdminController>getController();
+            controller.initView(this, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
+  public void showCourierViewCourier(final LoginManager loginManager, String sessionID){
+      try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("Couriers/courierView.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            ksp.Couriers.CourierController controller = 
+                loader.<ksp.Couriers.CourierController>getController();
             controller.initView(this, loginManager, sessionID);
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);

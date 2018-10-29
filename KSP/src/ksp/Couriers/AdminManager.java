@@ -1,4 +1,4 @@
-package ksp;
+package ksp.Couriers;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -7,12 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ksp.LoginManager;
+import ksp.MainViewManager;
 
-public class CouriersManager {
+public class AdminManager {
   private final Scene scene;
   private final Stage stage;
 
-  public CouriersManager(Scene scene,Stage stage) {
+  public AdminManager(Scene scene,Stage stage) {
     this.scene = scene;
     this.stage = stage;
   }
@@ -41,7 +43,7 @@ public class CouriersManager {
             stage.setWidth(500);
             addCourierController controller = 
                 loader.<addCourierController>getController();
-            controller.initView(this, mainManager, loginManager, sessionID);
+            controller.initView(mainManager, loginManager, sessionID);
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -61,7 +63,7 @@ public class CouriersManager {
             stage.setWidth(500);
             deleteCourierController controller = 
                 loader.<deleteCourierController>getController();
-            controller.initView(this, mainManager, loginManager, sessionID);
+            controller.initView(mainManager, loginManager, sessionID);
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,7 +83,7 @@ public class CouriersManager {
             stage.setWidth(720);
             findCourierLocationController controller = 
                 loader.<findCourierLocationController>getController();
-            controller.initView(this, mainManager, loginManager, sessionID);
+            controller.initView(mainManager, loginManager, sessionID);
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
