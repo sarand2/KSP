@@ -37,7 +37,7 @@
                         </HBox>
                     </items>
                   </ToolBar>
-                  <Pane prefHeight="415.0" prefWidth="601.0">
+                  <Pane prefHeight="451.0" prefWidth="720.0">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -71,17 +71,17 @@
                               <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
-                        <TableView layoutX="20.0" layoutY="110.0" prefHeight="335.0" prefWidth="680.0">
+                        <TableView layoutX="20.0" layoutY="110.0" prefHeight="324.0" prefWidth="680.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
+                            <TableColumn prefWidth="75.0" text="Kodas" />
+                            <TableColumn text="Pavadinimas" />
+                              <TableColumn prefWidth="70.0" text="Kaina" />
+                              <TableColumn prefWidth="75.0" text="Sandėlys" />
+                              <TableColumn prefWidth="75.0" text="Kategorija" />
+                              <TableColumn prefWidth="88.0" text="Prekės ženklas" />
+                              <TableColumn prefWidth="72.0" text="Kilmės šalis" />
+                              <TableColumn prefWidth="65.0" text="Svoris" />
+                              <TableColumn prefWidth="75.0" />
                           </columns>
                         </TableView>
                      </children>
