@@ -41,26 +41,6 @@ public class SandeliavimasManager {
         showAddWarehouse(mainManager, loginManager, sessionID);
     }
 
-//    private void showStorageView(final LoginManager loginManager, String sessionID) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(
-//                getClass().getResource("sandeliavimas.fxml")
-//            );
-//            scene.setRoot((Parent) loader.load());
-//            stage.setMinWidth(500);
-//            stage.setMinHeight(500);
-//            stage.setMaxWidth(500);
-//            stage.setMaxHeight(500);
-//            stage.setHeight(500);
-//            stage.setWidth(500);
-//            SandeliavimasController controller = 
-//                loader.<SandeliavimasController>getController();
-//            controller.initView(this, loginManager, sessionID);
-//        } catch (IOException ex) {
-//            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-
     private void showAddView(MainViewManager mainManager, LoginManager loginManager, String sessionID) {
         try {
             FXMLLoader loader = new FXMLLoader(
