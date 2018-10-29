@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.MainViewController">
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.SandeliavimasController">
   <children>
     <StackPane>
       <children>
@@ -24,7 +21,12 @@
                   <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="489.0">
                     <items>
                         <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
-                        <Label fx:id="sessionLabel" text="Sesija" />
+                        <Label fx:id="sessionLabel" prefHeight="17.0" prefWidth="316.0" text="Sesija" />
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="72.0">
+                           <children>
+                              <Button fx:id="backButton" mnemonicParsing="false" text="Atgal" />
+                           </children>
+                        </HBox>
                     </items>
                   </ToolBar>
                   <Pane prefHeight="550.0" prefWidth="550.0">
@@ -42,22 +44,22 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                            <children>
-                              <Button fx:id="couriersButton" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Kurjeriai">
+                              <Button fx:id="add" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių pridėjimas">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Ataskaitos" GridPane.columnIndex="1">
+                              <Button fx:id="delete" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių šalinimas" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Valdymas" GridPane.rowIndex="1">
+                              <Button fx:id="distribute" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paskirstymas" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button fx:id="sandeliavimasButton" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Sandėliavimas" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Button fx:id="search" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Prekių paieška" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="5.0" top="5.0" />
                                  </GridPane.margin>

@@ -15,6 +15,14 @@ public class LoginManager {
     this.scene = scene;
     this.stage = stage;
   }
+  
+  public Scene getScene() {
+      return this.scene;
+  }
+  
+  public Stage getStage() {
+      return this.stage;
+  }
 
   /**
    * Callback method invoked to notify that a user has been authenticated.
