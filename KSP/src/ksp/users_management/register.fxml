@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.users_management.RegisterController">
+    <children>
+        <StackPane>
+            <children>
+                <VBox spacing="10.0">
+                    <children>
+                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="489.0">
+                            <items>
+                                <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
+                                <Label fx:id="sessionLabel" prefHeight="17.0" prefWidth="134.0" text="Sesija" />
+                                <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="254.0">
+                                    <children>
+                                        <Button fx:id="main" mnemonicParsing="false" text="Pradžia" />
+                                        <Button fx:id="backButton" mnemonicParsing="false" text="Atgal">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin></Button>
+                                    </children>
+                                </HBox>
+                            </items>
+                        </ToolBar>
+                        <Pane prefHeight="550.0" prefWidth="550.0">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                            <children>
+                                <TextField fx:id="personalID" layoutX="213.0" layoutY="53.0" />
+                                <TextField fx:id="name" layoutX="213.0" layoutY="84.0" />
+                                <TextField fx:id="surname" layoutX="213.0" layoutY="114.0" />
+                                <TextField fx:id="password" layoutX="213.0" layoutY="147.0" />
+                                <TextField fx:id="address" layoutX="213.0" layoutY="180.0" />
+                                <Button fx:id="register" layoutX="126.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="236.0" text="Prisiregistruoti" />
+                                <Label layoutX="147.0" layoutY="14.0" text="Iveskite vartotojo duomenis" />
+                                <Label layoutX="123.0" layoutY="57.0" text="Vardas" />
+                                <Label layoutX="125.0" layoutY="88.0" text="Pavarde" />
+                                <Label layoutX="126.0" layoutY="152.0" text="Slaptazodis" />
+                                <Label layoutX="125.0" layoutY="119.0" text="El. pastas" />
+                                <Label layoutX="126.0" layoutY="185.0" text="Adresas" />
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+            <StackPane.margin>
+                <Insets />
+            </StackPane.margin>
+        </StackPane>
+    </children>
+    <padding>
+        <Insets bottom="10.0" />
+    </padding>
+</StackPane>

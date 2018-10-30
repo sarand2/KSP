@@ -4,11 +4,12 @@ import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-/** Controls the main application screen */
+/** UsersManagementController the main application screen */
 public class MainViewController {
   @FXML private Button logoutButton;
   @FXML private Label  sessionLabel;
   @FXML private Button sandeliavimasButton;
+  @FXML private Button controlsButton;
   @FXML private Button couriersButton;
   
   public void initialize() {}
@@ -26,6 +27,11 @@ public class MainViewController {
     sandeliavimasButton.setOnAction((ActionEvent event) -> {
         MainViewManager mainManager = new MainViewManager(loginManager.getScene(), loginManager.getStage());
         mainManager.navigateStorage(loginManager, sessionID);
+    });
+
+      controlsButton.setOnAction((ActionEvent event) -> {
+      MainViewManager mainManager = new MainViewManager(loginManager.getScene(), loginManager.getStage());
+      mainManager.navigateControls(loginManager, sessionID);
     });
   }
 }

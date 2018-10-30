@@ -4,7 +4,7 @@ import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-/** Controls the login screen */
+/** UsersManagementController the login screen */
 public class LoginController {
   @FXML private TextField user;
   @FXML private TextField password;

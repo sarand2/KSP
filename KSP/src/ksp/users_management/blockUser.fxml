@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.users_management.BlockUser">
+    <children>
+        <StackPane>
+            <children>
+                <VBox spacing="10.0">
+                    <children>
+                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="489.0">
+                            <items>
+                                <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
+                                <Label fx:id="sessionLabel" prefHeight="17.0" prefWidth="134.0" text="Sesija" />
+                                <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="254.0">
+                                    <children>
+                                        <Button fx:id="main" mnemonicParsing="false" text="Pradžia" />
+                                        <Button fx:id="backButton" mnemonicParsing="false" text="Atgal">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin></Button>
+                                    </children>
+                                </HBox>
+                            </items>
+                        </ToolBar>
+                        <Pane prefHeight="550.0" prefWidth="550.0">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                            <children>
+                                <TextField fx:id="name" layoutX="213.0" layoutY="84.0" />
+                                <ComboBox fx:id="userToBlock" layoutX="213.0" layoutY="53.0" prefHeight="26.0" prefWidth="170.0" />
+                                <ComboBox fx:id="restrictions" layoutX="213.0" layoutY="126.0" prefHeight="26.0" prefWidth="170.0" />
+                                <Button fx:id="block" layoutX="125.0" layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="236.0" text="Uzblokuoti" />
+                                <Label layoutX="147.0" layoutY="14.0" text="Vartotojo uzblokavimas" />
+                                <Label layoutX="60.0" layoutY="58.0" text="Pasirinkite vartotoja" />
+                                <Label layoutX="60.0" layoutY="89.0" text="Iveskite priezasti" />
+                                <Label layoutX="60.0" layoutY="131.0" text="Pasirinkite bausme" />
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+            <StackPane.margin>
+                <Insets />
+            </StackPane.margin>
+        </StackPane>
+    </children>
+    <padding>
+        <Insets bottom="10.0" />
+    </padding>
+</StackPane>

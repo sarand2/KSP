@@ -1,6 +1,5 @@
 package ksp;
 
-import ksp.Couriers.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -79,6 +78,12 @@ public class MainViewManager {
         showStorageView(loginManager, sessionID);
     }
 
+    public void navigateControls(final LoginManager loginManager, String sessionID) {
+        if(sessionID.contains("admin")){
+            showControlsView(loginManager, sessionID);
+        }
+    }
+
     private void showStorageView(final LoginManager loginManager, String sessionID) {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -93,6 +98,26 @@ public class MainViewManager {
             stage.setWidth(500);
             SandeliavimasController controller = 
                 loader.<SandeliavimasController>getController();
+            controller.initView(this, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void showControlsView(final LoginManager loginManager, String sessionID) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("usersManagement.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            UsersManagementController controller =
+                    loader.<UsersManagementController>getController();
             controller.initView(this, loginManager, sessionID);
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
