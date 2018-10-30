@@ -47,6 +47,10 @@ public class findCourierLocationController implements Initializable {
         backButton.setOnAction((ActionEvent event) -> {
            mainManager.navigateCouriers(loginManager, sessionID);
         });
+        AdminManager adminManager = new AdminManager(mainManager.getScene(), mainManager.getStage());
+          showOnMap.setOnAction((ActionEvent event) -> {
+            adminManager.navigateMap(mainManager, loginManager, sessionID);
+        });
     }
     
 }

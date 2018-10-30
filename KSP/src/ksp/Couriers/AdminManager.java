@@ -29,6 +29,29 @@ public class AdminManager {
     public void navigateSearch(final MainViewManager mainManager, final LoginManager loginManager, String sessionID) {
         showSearchView(mainManager, loginManager, sessionID);
     }
+      public void navigateMap(final MainViewManager mainManager, final LoginManager loginManager, String sessionID){
+        showMapView(mainManager, loginManager, sessionID);
+    }
+     
+    private void showMapView(MainViewManager mainManager, LoginManager loginManager, String sessionID) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("showMap.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            showMapController controller = 
+                loader.<showMapController>getController();
+            controller.initView(mainManager, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void showAddView(MainViewManager mainManager, LoginManager loginManager, String sessionID) {
         try {
             FXMLLoader loader = new FXMLLoader(

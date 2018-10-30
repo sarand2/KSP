@@ -20,12 +20,10 @@ import ksp.MainViewManager;
  *
  * @author Admin
  */
-public class FillCarController implements Initializable {
+public class showMapController implements Initializable {
     @FXML private Button logoutButton;
     @FXML private Label  sessionLabel;
     @FXML private Button backButton;
-    @FXML private Button getList;
-    @FXML private Button accept;
     @FXML private Button main;
     /**
      * Initializes the controller class.
@@ -39,13 +37,18 @@ public class FillCarController implements Initializable {
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();
         });
-        backButton.setOnAction((ActionEvent event) -> {
-           mainManager.navigateCouriers(loginManager, sessionID);
-        });
         main.setOnAction((ActionEvent event) -> {
             loginManager.authenticated(sessionID);
         });
-
+        backButton.setOnAction((ActionEvent event) -> {
+             if(sessionID.contains("admin")){
+            AdminManager adminManager = new AdminManager(mainManager.getScene(), mainManager.getStage());
+            adminManager.navigateSearch(mainManager, loginManager, sessionID);
+        } else {
+                 CourierManager couriersManager = new CourierManager(mainManager.getScene(), mainManager.getStage());
+                 couriersManager.navigatePlanRoute(mainManager, loginManager, sessionID);
+             }
+        });
     }
     
 }

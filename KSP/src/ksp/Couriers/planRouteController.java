@@ -24,6 +24,8 @@ public class planRouteController implements Initializable {
     @FXML private Button logoutButton;
     @FXML private Label  sessionLabel;
     @FXML private Button backButton;
+    @FXML private Button main;
+    
     @FXML private Button showOnMap;
     @FXML private Button planRoute;
     /**
@@ -38,16 +40,17 @@ public class planRouteController implements Initializable {
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();
         });
-        backButton.setOnAction((ActionEvent event) -> {
+        main.setOnAction((ActionEvent event) -> {
             loginManager.authenticated(sessionID);
         });
+       
         CourierManager couriersManager = new CourierManager(mainManager.getScene(), mainManager.getStage());
-//        getList.setOnAction((ActionEvent event) -> {
-//            couriersManager.navig(mainManager, loginManager, sessionID);
-//        });
-//        accept.setOnAction((ActionEvent event) -> {
-//            couriersManager.navigateDelete(mainManager, loginManager, sessionID);
-//        });
+        showOnMap.setOnAction((ActionEvent event) -> {
+            couriersManager.navigateMap(mainManager, loginManager, sessionID);
+        });
+         backButton.setOnAction((ActionEvent event) -> {
+            mainManager.navigateCouriers(loginManager, sessionID);
+        });
     }
     
 }

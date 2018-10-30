@@ -27,6 +27,7 @@ public class getReportController implements Initializable {
     @FXML private Button generateReport;
     @FXML private Button accept;
     @FXML private Label state;
+    @FXML private Button main;
     /**
      * Initializes the controller class.
      */
@@ -39,16 +40,13 @@ public class getReportController implements Initializable {
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();
         });
-        backButton.setOnAction((ActionEvent event) -> {
+        main.setOnAction((ActionEvent event) -> {
             loginManager.authenticated(sessionID);
         });
         CourierManager couriersManager = new CourierManager(mainManager.getScene(), mainManager.getStage());
-//        getList.setOnAction((ActionEvent event) -> {
-//            couriersManager.navig(mainManager, loginManager, sessionID);
-//        });
-//        accept.setOnAction((ActionEvent event) -> {
-//            couriersManager.navigateDelete(mainManager, loginManager, sessionID);
-//        });
+        backButton.setOnAction((ActionEvent event) -> {
+            mainManager.navigateCouriers(loginManager, sessionID);
+        });
     }
     
 }
