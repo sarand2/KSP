@@ -11,6 +11,7 @@ public class MainViewController {
   @FXML private Button sandeliavimasButton;
   @FXML private Button controlsButton;
   @FXML private Button couriersButton;
+  @FXML private Button acountingButton;
   
   public void initialize() {}
   
@@ -32,6 +33,11 @@ public class MainViewController {
       controlsButton.setOnAction((ActionEvent event) -> {
       MainViewManager mainManager = new MainViewManager(loginManager.getScene(), loginManager.getStage());
       mainManager.navigateControls(loginManager, sessionID);
+    });
+      
+      acountingButton.setOnAction((ActionEvent event) -> {
+      MainViewManager mainManager = new MainViewManager(loginManager.getScene(), loginManager.getStage());
+      mainManager.navigateAcounting(loginManager, sessionID);
     });
   }
 }
