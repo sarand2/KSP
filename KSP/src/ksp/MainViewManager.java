@@ -123,18 +123,18 @@ public class MainViewManager {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     public void navigateAcounting(final LoginManager loginManager, String sessionID) {
       if(sessionID.contains("admin")){
           showAccountingViewAdmin(loginManager, sessionID);
-      }
-      if(sessionID.contains("courier")){
+      } else if(sessionID.contains("courier")){
           showAcountingViewCourier(loginManager, sessionID);
-      }
-      if(sessionID.contains("user")){
+      } else if (sessionID.contains("user")){
           showAcountingViewUser(loginManager, sessionID);
       }
   }
-  public void showAccountingViewAdmin(final LoginManager loginManager, String sessionID){
+    
+  private void showAccountingViewAdmin(final LoginManager loginManager, String sessionID){
       try {
             FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("apskaita/adminView.fxml")
@@ -153,7 +153,8 @@ public class MainViewManager {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
   }
-  public void showAcountingViewCourier(final LoginManager loginManager, String sessionID){
+  
+  private void showAcountingViewCourier(final LoginManager loginManager, String sessionID){
       try {
             FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("apskaita/CourierView.fxml")
@@ -172,7 +173,8 @@ public class MainViewManager {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
   }
-  public void showAcountingViewUser(final LoginManager loginManager, String sessionID){
+  
+  private void showAcountingViewUser(final LoginManager loginManager, String sessionID){
       try {
             FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("apskaita/UserView.fxml")
