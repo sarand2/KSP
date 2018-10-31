@@ -123,4 +123,72 @@ public class MainViewManager {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void navigateAcounting(final LoginManager loginManager, String sessionID) {
+      if(sessionID.contains("admin")){
+          showAccountingViewAdmin(loginManager, sessionID);
+      }
+      if(sessionID.contains("courier")){
+          showAcountingViewCourier(loginManager, sessionID);
+      }
+      if(sessionID.contains("user")){
+          showAcountingViewUser(loginManager, sessionID);
+      }
+  }
+  public void showAccountingViewAdmin(final LoginManager loginManager, String sessionID){
+      try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("apskaita/adminView.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            ksp.apskaita.AdminController controller = 
+                loader.<ksp.apskaita.AdminController>getController();
+            controller.initView(this, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
+  public void showAcountingViewCourier(final LoginManager loginManager, String sessionID){
+      try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("apskaita/CourierView.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            ksp.apskaita.CourierController controller = 
+                loader.<ksp.apskaita.CourierController>getController();
+            controller.initView(this, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
+  public void showAcountingViewUser(final LoginManager loginManager, String sessionID){
+      try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("apskaita/UserView.fxml")
+            );
+            scene.setRoot((Parent) loader.load());
+            stage.setMinWidth(500);
+            stage.setMinHeight(500);
+            stage.setMaxWidth(500);
+            stage.setMaxHeight(500);
+            stage.setHeight(500);
+            stage.setWidth(500);
+            ksp.apskaita.UserController controller = 
+                loader.<ksp.apskaita.UserController>getController();
+            controller.initView(this, loginManager, sessionID);
+        } catch (IOException ex) {
+            Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }
 }
