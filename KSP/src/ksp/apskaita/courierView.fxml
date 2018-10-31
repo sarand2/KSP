@@ -4,8 +4,19 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.MainViewController">
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.apskaita.CourierController">
   <children>
     <StackPane>
       <children>
@@ -14,42 +25,36 @@
                   <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="489.0">
                     <items>
                         <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
-                        <Label fx:id="sessionLabel" text="Sesija" />
+                        <Label fx:id="sessionLabel" prefHeight="17.0" prefWidth="316.0" text="Sesija" />
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="72.0">
+                           <children>
+                              <Button fx:id="backButton" mnemonicParsing="false" text="Atgal" />
+                           </children>
+                        </HBox>
                     </items>
                   </ToolBar>
                   <Pane prefHeight="550.0" prefWidth="550.0">
                      <children>
-                        <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0">
+                        <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="212.0" prefWidth="480.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <padding>
                               <Insets left="20.0" right="20.0" />
                            </padding>
                            <children>
-                              <Button fx:id="couriersButton" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Kurjeriai">
+                              <Button fx:id="routes" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Maršrutai">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="5.0" />
                                  </GridPane.margin>
                               </Button>
-                              <Button fx:id="acountingButton" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Ataskaitos" GridPane.columnIndex="1">
+                              <Button fx:id="checkCouriers" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Kurjerių darbas" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" />
-                                 </GridPane.margin>
-                              </Button>
-                              <Button fx:id="controlsButton" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Valdymas" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets right="5.0" top="5.0" />
-                                 </GridPane.margin>
-                              </Button>
-                              <Button fx:id="sandeliavimasButton" mnemonicParsing="false" prefHeight="400.0" prefWidth="300.0" text="Sandėliavimas" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Button>
                            </children>
