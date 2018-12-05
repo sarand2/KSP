@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -41,17 +42,14 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="delete" layoutX="123.0" layoutY="314.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="235.0" text="Šalinti" />
+                        <Button fx:id="delete" layoutX="123.0" layoutY="314.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="25.0" prefWidth="235.0" text="Šalinti" />
                         <Label layoutX="173.0" layoutY="14.0" text="Pasirinkite šalinimą kurjerį" />
-                        <TableView layoutX="14.0" layoutY="47.0" prefHeight="200.0" prefWidth="458.0">
-                          <columns>
-                              <TableColumn prefWidth="42.0" text="ID" />
-                            <TableColumn prefWidth="115.0" text="Vardas" />
-                            <TableColumn prefWidth="102.0" text="Pavardė" />
-                              <TableColumn prefWidth="101.0" text="Asmens kodas" />
-                              <TableColumn prefWidth="97.0" text="Kategorija" />
-                          </columns>
-                        </TableView>
+                        <TableView fx:id="table" layoutX="6.0" layoutY="52.0" prefHeight="214.0" prefWidth="468.0" />
+                        <Label fx:id="label" layoutX="123.0" layoutY="275.0" prefHeight="20.0" prefWidth="351.0" textAlignment="CENTER" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
           </children>

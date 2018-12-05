@@ -46,7 +46,7 @@ public class CourierManager {
             stage.setWidth(500);
             showMapController controller = 
                 loader.<showMapController>getController();
-            controller.initView(mainManager, loginManager, sessionID);
+            controller.initView(mainManager, loginManager, sessionID,"");
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.Couriers.showMapController">
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.Couriers.showMapController">
   <children>
     <StackPane>
       <children>
@@ -26,28 +27,24 @@
                     <items>
                         <Button id="loginButton" fx:id="logoutButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Atsijungti" />
                         <Label fx:id="sessionLabel" prefHeight="17.0" prefWidth="134.0" text="Sesija" />
-                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="254.0">
+                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="501.0">
                            <children>
-                              <Button fx:id="main" mnemonicParsing="false" text="Pradžia" />
                               <Button fx:id="backButton" mnemonicParsing="false" text="Atgal">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin></Button>
                            </children>
                         </HBox>
+                        <Button fx:id="main" mnemonicParsing="false" text="Pradžia" />
                     </items>
                   </ToolBar>
-                  <Pane prefHeight="550.0" prefWidth="550.0">
+                  <Pane prefHeight="701.0" prefWidth="725.0">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <children>
-                        <Label layoutX="213.0" layoutY="6.0" text="Žemėlapis" />
-                        <ImageView fitHeight="372.0" fitWidth="450.0" layoutX="14.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@traffic_primary.jpg" />
-                           </image>
-                        </ImageView>
+                        <Label layoutX="336.0" layoutY="6.0" text="Žemėlapis" />
+                        <WebView fx:id="web" layoutX="10.0" layoutY="34.0" prefHeight="666.0" prefWidth="709.0" />
                      </children>
                   </Pane>
           </children>

@@ -35,6 +35,7 @@ public class planRouteController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
       
     } 
+    
     public void initView(final MainViewManager mainManager, final LoginManager loginManager, String sessionID) {
         sessionLabel.setText(sessionID);
         logoutButton.setOnAction((ActionEvent event) -> {

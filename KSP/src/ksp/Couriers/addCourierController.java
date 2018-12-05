@@ -11,13 +11,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ksp.LoginManager;
 import ksp.MainViewManager;
 
 public class addCourierController implements Initializable {
-
+    dbConnection dbc = new dbConnection();
     @FXML
     private Button logoutButton;
     @FXML
@@ -33,18 +34,43 @@ public class addCourierController implements Initializable {
     @FXML
     private TextField surname;
     @FXML
+    private Label status;
+    @FXML
+    public ComboBox category;
+    
+    @FXML
     private Button add;
-
+    
+   public void addButton(ActionEvent e){
+       if(personalID.getText() != null && name.getText() != null && surname.getText() != null && category.getValue() != null){
+           String personalID = "\"" + this.personalID.getText() + "\"";
+           String name = "\"" + this.name.getText() + "\"";
+           String surname = "\"" + this.surname.getText() + "\"";
+           String category = "\"" + this.category.getValue().toString() + "\"";
+           String query = "INSERT INTO kurjeriai (asmens_kodas,vardas,pavarde,auto_kategorija) values("+ personalID+","+name+","+surname+","+category+")";
+           System.out.println("Sending query: " + query);
+           boolean ok = dbc.executeQuery(query);
+           if(ok){
+              status.setText("Naujas kurjerio įrašas sukurtas.");
+           }
+           else {
+               status.setText("Nepavyko sukurti kurjerio įrašo.");
+           }
+       } else {
+           status.setText("Prašome užpildyti visus laukelius.");
+       }
+   }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
-
     void initView(MainViewManager mainManager, LoginManager loginManager, String sessionID) {
+        
         sessionLabel.setText(sessionID);
+        category.getItems().addAll("B","BE","C1","C1E");
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();
         });

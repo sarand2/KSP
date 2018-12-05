@@ -26,14 +26,14 @@ public class AdminManager {
         showDeleteView(mainManager, loginManager, sessionID);
     }
 
-    public void navigateSearch(final MainViewManager mainManager, final LoginManager loginManager, String sessionID) {
-        showSearchView(mainManager, loginManager, sessionID);
+    public void navigateSearch(final MainViewManager mainManager, final LoginManager loginManager, String sessionID, String address) {
+        showSearchView(mainManager, loginManager, sessionID,address);
     }
-      public void navigateMap(final MainViewManager mainManager, final LoginManager loginManager, String sessionID){
-        showMapView(mainManager, loginManager, sessionID);
+      public void navigateMap(final MainViewManager mainManager, final LoginManager loginManager, String sessionID, String address){
+        showMapView(mainManager, loginManager, sessionID,address);
     }
      
-    private void showMapView(MainViewManager mainManager, LoginManager loginManager, String sessionID) {
+    private void showMapView(MainViewManager mainManager, LoginManager loginManager, String sessionID, String address) {
         try {
             FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("showMap.fxml")
@@ -41,13 +41,13 @@ public class AdminManager {
             scene.setRoot((Parent) loader.load());
             stage.setMinWidth(500);
             stage.setMinHeight(500);
-            stage.setMaxWidth(500);
-            stage.setMaxHeight(500);
-            stage.setHeight(500);
-            stage.setWidth(500);
+            stage.setMaxWidth(1024);
+            stage.setMaxHeight(1024);
+            stage.setHeight(800);
+            stage.setWidth(800);
             showMapController controller = 
                 loader.<showMapController>getController();
-            controller.initView(mainManager, loginManager, sessionID);
+            controller.initView(mainManager, loginManager, sessionID,address);
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -92,7 +92,7 @@ public class AdminManager {
         }
     }
 
-    private void showSearchView(MainViewManager mainManager, LoginManager loginManager, String sessionID) {
+    private void showSearchView(MainViewManager mainManager, LoginManager loginManager, String sessionID,String address) {
         try {
             FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("findCourierLocation.fxml")
@@ -106,7 +106,7 @@ public class AdminManager {
             stage.setWidth(720);
             findCourierLocationController controller = 
                 loader.<findCourierLocationController>getController();
-            controller.initView(mainManager, loginManager, sessionID);
+            controller.initView(mainManager, loginManager, sessionID,address);
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }

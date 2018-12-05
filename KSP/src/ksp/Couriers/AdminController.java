@@ -36,7 +36,7 @@ public class AdminController {
             couriersManager.navigateDelete(mainManager, loginManager, sessionID);
         });
         search.setOnAction((ActionEvent event) -> {
-            couriersManager.navigateSearch(mainManager, loginManager, sessionID);
+            couriersManager.navigateSearch(mainManager, loginManager, sessionID,"");
         });
     }
 }

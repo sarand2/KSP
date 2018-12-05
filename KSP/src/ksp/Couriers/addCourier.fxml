@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -33,13 +35,14 @@
                         <TextField fx:id="personalID" layoutX="213.0" layoutY="53.0" />
                         <TextField fx:id="name" layoutX="213.0" layoutY="84.0" />
                         <TextField fx:id="surname" layoutX="213.0" layoutY="115.0" />
-                        <Button fx:id="add" layoutX="126.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="236.0" text="Pridėti" />
+                        <Button fx:id="add" layoutX="126.0" layoutY="195.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="236.0" text="Pridėti" />
                         <Label layoutX="147.0" layoutY="14.0" text="Įveskite duomenis apie naują kurjerį" />
                         <Label layoutX="123.0" layoutY="57.0" text="Asmens kodas" />
                         <Label layoutX="125.0" layoutY="88.0" text="Vardas" />
                         <Label layoutX="126.0" layoutY="152.0" text="Kategorija" />
                         <Label layoutX="125.0" layoutY="119.0" text="Pavardė" />
-                        <ComboBox layoutX="212.0" layoutY="148.0" prefWidth="150.0" />
+                        <ComboBox fx:id="category" layoutX="212.0" layoutY="148.0" prefWidth="150.0" />
+                        <Label fx:id="status" layoutX="129.0" layoutY="281.0" prefHeight="17.0" prefWidth="236.0" textFill="RED" />
                      </children>
                   </Pane>
           </children>

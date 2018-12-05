@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -47,16 +48,13 @@
                      </VBox.margin>
                      <children>
                         <Label layoutX="331.0" layoutY="14.0" text="Pasirinkite kurjerį" />
-                        <TableView layoutX="72.0" layoutY="55.0" prefHeight="265.0" prefWidth="609.0">
-                          <columns>
-                            <TableColumn prefWidth="95.0" text="ID" />
-                            <TableColumn prefWidth="121.0" text="Vardas" />
-                              <TableColumn prefWidth="130.0" text="Pavardė" />
-                              <TableColumn prefWidth="131.0" text="Asmens kodas" />
-                              <TableColumn prefWidth="131.0" text="Paskutinė vieta" />
-                          </columns>
-                        </TableView>
-                        <Button fx:id="showOnMap" layoutX="275.0" layoutY="356.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" text="Parodyti žemėlapyje" />
+                        <TableView fx:id="table" layoutX="72.0" layoutY="55.0" prefHeight="265.0" prefWidth="609.0" />
+                        <Button fx:id="showOnMap" layoutX="275.0" layoutY="356.0" mnemonicParsing="false" onAction="#showMapButton" prefHeight="25.0" prefWidth="203.0" text="Parodyti žemėlapyje" />
+                        <Label fx:id="label" layoutX="275.0" layoutY="331.0" prefHeight="17.0" prefWidth="403.0" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
           </children>
