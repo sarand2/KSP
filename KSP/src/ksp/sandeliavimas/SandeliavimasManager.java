@@ -1,4 +1,4 @@
-package ksp;
+package ksp.sandeliavimas;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ksp.LoginManager;
+import ksp.MainViewManager;
 
 /**
  *

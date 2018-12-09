@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ksp;
+package ksp.sandeliavimas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,14 +12,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import ksp.LoginManager;
+import ksp.MainViewManager;
 
 /**
  * FXML Controller class
  *
  * @author Martynas
  */
-public class PrekiuSalinimasController implements Initializable {
+public class PrekiuPaieskaController implements Initializable {
 
     @FXML
     private Button logoutButton;
@@ -29,10 +30,6 @@ public class PrekiuSalinimasController implements Initializable {
     private Button main;
     @FXML
     private Button backButton;
-    @FXML
-    private TextField count;
-    @FXML
-    private Button delete;
 
     /**
      * Initializes the controller class.

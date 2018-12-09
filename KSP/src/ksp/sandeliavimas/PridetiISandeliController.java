@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ksp;
+package ksp.sandeliavimas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,13 +12,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import ksp.LoginManager;
+import ksp.MainViewManager;
 
 /**
  * FXML Controller class
  *
  * @author Martynas
  */
-public class PaskirstymasController implements Initializable {
+public class PridetiISandeliController implements Initializable {
 
     @FXML
     private Button logoutButton;
@@ -29,7 +32,13 @@ public class PaskirstymasController implements Initializable {
     @FXML
     private Button backButton;
     @FXML
-    private Button distribute;
+    private Button addNew;
+    @FXML
+    private TextField price;
+    @FXML
+    private TextField count;
+    @FXML
+    private Button add;
 
     /**
      * Initializes the controller class.
@@ -49,6 +58,9 @@ public class PaskirstymasController implements Initializable {
         });
         backButton.setOnAction((ActionEvent event) -> {
            mainManager.navigateStorage(loginManager, sessionID);
+        });
+        addNew.setOnAction((ActionEvent event) -> {
+            sandeliavimas.navigateAdd(mainManager, loginManager, sessionID);
         });
     }
     
