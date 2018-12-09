@@ -27,7 +27,6 @@ public class findCourierLocationController implements Initializable {
     MainViewManager mvm;
     LoginManager lg;
     String sID;
-    
     @FXML
     private Button logoutButton;
     @FXML
@@ -65,8 +64,9 @@ public class findCourierLocationController implements Initializable {
       if(!tableS.isEmpty()){
         ObservableList<Courier> selected = tableS.getSelectedItems();
         final String addr = selected.get(0).getLocation();
+        final String url = "https://nominatim.openstreetmap.org/search.php?q=" + addr + "&polygon_geojson=1&viewbox=";
         AdminManager adminManager = new AdminManager(mvm.getScene(), mvm.getStage());
-        adminManager.navigateMap(mvm, lg, sID,addr); 
+        adminManager.navigateMap(mvm, lg, sID,url); 
         table.setItems(readCouriers());
       }else {
           label.setText("Prašome pasirinkti norimą kurjerį.");
@@ -100,9 +100,7 @@ public class findCourierLocationController implements Initializable {
         });
         backButton.setOnAction((ActionEvent event) -> {
            mainManager.navigateCouriers(loginManager, sessionID);
-        });
-        //AdminManager adminManager = new AdminManager(mainManager.getScene(), mainManager.getStage());
-        
+        });      
     }
        ObservableList<Courier> readCouriers(){
         final ObservableList<Courier> data = FXCollections.observableArrayList();

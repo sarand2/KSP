@@ -41,15 +41,17 @@ public class LoginController {
    * otherwise, return null.
    */   
   private String authorize() {
+      
     return
-            user.getText().equals("admin") && password.getText().equals("admin")|| user.getText().equals("user") && password.getText().equals("user") || user.getText().equals("courier") && password.getText().equals("courier")
+            user.getText().equals("admin") && password.getText().equals("admin")|| user.getText().equals("user") && password.getText().equals("user") || user.getText().contains("courier") && password.getText().equals("courier")
             ? generateSessionID(user.getText()) 
             : null;
   }
   
-  private static int sessionID = 0;
+  //private static int sessionID = 0;
   private String generateSessionID(String name) {
-    sessionID++;
-    return name + " - session " + sessionID;
+    //sessionID++;\
+    //return name + " - session " + sessionID;
+    return name;
   }
 }

@@ -49,7 +49,7 @@ public class addCourierController implements Initializable {
            String category = "\"" + this.category.getValue().toString() + "\"";
            String query = "INSERT INTO kurjeriai (asmens_kodas,vardas,pavarde,auto_kategorija) values("+ personalID+","+name+","+surname+","+category+")";
            System.out.println("Sending query: " + query);
-           boolean ok = dbc.executeQuery(query);
+           boolean ok = dbc.executeUpdate(query);
            if(ok){
               status.setText("Naujas kurjerio įrašas sukurtas.");
            }

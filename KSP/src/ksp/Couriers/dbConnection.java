@@ -47,7 +47,49 @@ public ResultSet getCouriersList()
     }
    return rs;
 }
-public boolean executeQuery(String query){
+public ResultSet getRoutes()
+{
+    try{
+         rs = st.executeQuery("SELECT * FROM marsrutai");    
+    } catch(SQLException ex){
+        System.out.println("SQLException:\n"+ex.toString());
+        ex.printStackTrace();
+    }
+   return rs;
+}
+
+public ResultSet getOrderedProducts()
+{
+    try{
+         rs = st.executeQuery("SELECT * FROM uzsakytos_prekes");    
+    } catch(SQLException ex){
+        System.out.println("SQLException:\n"+ex.toString());
+        ex.printStackTrace();
+    }
+   return rs;
+}
+
+public ResultSet getOrderedProductsByCarID(String carID)
+{
+    try{
+         rs = st.executeQuery("SELECT * FROM uzsakytos_prekes WHERE fk_automobilis='"+carID+"';");    
+    } catch(SQLException ex){
+        System.out.println("SQLException:\n"+ex.toString());
+        ex.printStackTrace();
+    }
+   return rs;
+}
+public ResultSet getCarsList()
+{
+    try{
+         rs = st.executeQuery("SELECT * FROM automobiliai");    
+    } catch(SQLException ex){
+        System.out.println("SQLException:\n"+ex.toString());
+        ex.printStackTrace();
+    }
+   return rs;
+}
+public boolean executeUpdate(String query){
     try{
     st.executeUpdate(query);
     }catch(SQLException ex){

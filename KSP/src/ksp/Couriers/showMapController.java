@@ -39,7 +39,7 @@ public class showMapController implements Initializable {
     public void initView(final MainViewManager mainManager, final LoginManager loginManager, String sessionID, String address) {
         final WebEngine webEngine = web.getEngine();
         web.setZoom(0.8);
-        webEngine.load("https://nominatim.openstreetmap.org/search.php?q=" + address + "&polygon_geojson=1&viewbox=");
+        webEngine.load(address);
         sessionLabel.setText(sessionID);
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();

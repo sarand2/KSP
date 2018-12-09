@@ -6,9 +6,13 @@
 package ksp.Couriers;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +24,6 @@ import org.json.simple.parser.JSONParser;
 
 public class OpenStreetMapUtils {
 
-    //public final static Logger log = Logger.getLogger("OpenStreeMapUtils");
 
     private static OpenStreetMapUtils instance = null;
     private JSONParser jsonParser;
@@ -58,7 +61,7 @@ public class OpenStreetMapUtils {
 
         return response.toString();
     }
-
+    
     public Map<String, Double> getCoordinates(String address) {
         Map<String, Double> res;
         StringBuffer query;
@@ -68,8 +71,7 @@ public class OpenStreetMapUtils {
         query = new StringBuffer();
         res = new HashMap<String, Double>();
 
-        query.append("http://nominatim.openstreetmap.org/search?q=");
-
+        query.append("https://nominatim.openstreetmap.org/search?q=");
         if (split.length == 0) {
             return null;
         }
@@ -81,22 +83,21 @@ public class OpenStreetMapUtils {
             }
         }
         query.append("&format=json&addressdetails=1");
-
-   //     log.debug("Query:" + query);
+        
 
         try {
             queryResult = getRequest(query.toString());
+        
         } catch (Exception e) {
-      //      log.error("Error when trying to get data with the following query " + query);
         }
 
         if (queryResult == null) {
+           
             return null;
         }
 
         Object obj = JSONValue.parse(queryResult);
-    //    log.debug("obj=" + obj);
-
+     
         if (obj instanceof JSONArray) {
             JSONArray array = (JSONArray) obj;
             if (array.size() > 0) {
@@ -104,8 +105,6 @@ public class OpenStreetMapUtils {
 
                 String lon = (String) jsonObject.get("lon");
                 String lat = (String) jsonObject.get("lat");
-        //        log.debug("lon=" + lon);
-    //            log.debug("lat=" + lat);
                 res.put("lon", Double.parseDouble(lon));
                 res.put("lat", Double.parseDouble(lat));
 

@@ -39,12 +39,12 @@ public class AdminManager {
                 getClass().getResource("showMap.fxml")
             );
             scene.setRoot((Parent) loader.load());
-            stage.setMinWidth(500);
-            stage.setMinHeight(500);
+            stage.setMinWidth(800);
+            stage.setMinHeight(800);
             stage.setMaxWidth(1024);
             stage.setMaxHeight(1024);
-            stage.setHeight(800);
-            stage.setWidth(800);
+            stage.setHeight(1024);
+            stage.setWidth(1024);
             showMapController controller = 
                 loader.<showMapController>getController();
             controller.initView(mainManager, loginManager, sessionID,address);

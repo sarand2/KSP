@@ -59,7 +59,7 @@ public class deleteCourierController implements Initializable {
       if(!tableS.isEmpty()){
         ObservableList<Courier> selected = tableS.getSelectedItems();
         String query = "DELETE FROM kurjeriai WHERE id='" + selected.get(0).getId() + "';";
-        boolean succesful = dbc.executeQuery(query);
+        boolean succesful = dbc.executeUpdate(query);
         if(succesful){
             label.setText("Įrašas ištrintas.");
         } else {
