@@ -6,6 +6,8 @@
 package ksp.sandeliavimas;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import ksp.Couriers.dbConnection;
 import ksp.LoginManager;
 import ksp.MainViewManager;
 
@@ -23,6 +26,7 @@ import ksp.MainViewManager;
  */
 public class PrekiuPaieskaController implements Initializable {
 
+    dbConnection dbc = new dbConnection();
     @FXML
     private Button logoutButton;
     @FXML
@@ -40,13 +44,21 @@ public class PrekiuPaieskaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     void initView(SandeliavimasManager sandeliavimas, MainViewManager mainManager, LoginManager loginManager, String sessionID) {
         sessionLabel.setText(sessionID);
-        
-        category.getItems().addAll("Telefonai", "Kompiuteriai", "Žaidimai", "Rūbai", "Sportui", "Baldai", "Buitinė technika");
-        
+
+        ResultSet categories = dbc.getCategories();
+        try {
+            while (categories.next()) {
+                category.getItems().add(categories.getString("pavadinimas"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("ERROR: " + ex);
+            ex.printStackTrace();
+        }
+
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();
         });
@@ -54,8 +66,8 @@ public class PrekiuPaieskaController implements Initializable {
             loginManager.authenticated(sessionID);
         });
         backButton.setOnAction((ActionEvent event) -> {
-           mainManager.navigateStorage(loginManager, sessionID);
+            mainManager.navigateStorage(loginManager, sessionID);
         });
     }
-    
+
 }

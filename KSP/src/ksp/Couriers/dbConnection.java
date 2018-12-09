@@ -100,7 +100,15 @@ public boolean executeUpdate(String query){
     return true;
 }
 
-
+public ResultSet getCategories() {
+    try {
+        rs = st.executeQuery("SELECT * FROM kategorijos");
+    } catch(SQLException e) {
+        System.out.println("'SQLException:\n" + e.toString());
+        e.printStackTrace();
+    }
+    return rs;
+}
 
 
 }
