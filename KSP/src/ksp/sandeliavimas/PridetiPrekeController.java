@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ksp.LoginManager;
@@ -42,9 +43,11 @@ public class PridetiPrekeController implements Initializable {
     @FXML
     private TextField country;
     @FXML
-    private TextField wight;
-    @FXML
     private Button add;
+    @FXML
+    private TextField weight;
+    @FXML
+    private ComboBox category;
 
     /**
      * Initializes the controller class.
@@ -56,6 +59,9 @@ public class PridetiPrekeController implements Initializable {
 
     void initView(SandeliavimasManager sandeliavimas, MainViewManager mainManager, LoginManager loginManager, String sessionID) {
         sessionLabel.setText(sessionID);
+        
+        category.getItems().addAll("Telefonai", "Kompiuteriai", "Žaidimai", "Rūbai", "Sportui", "Baldai", "Buitinė technika");
+        
         logoutButton.setOnAction((ActionEvent event) -> {
             loginManager.logout();
         });
