@@ -8,6 +8,7 @@ package ksp.Couriers;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -93,7 +94,8 @@ public class FillCarController implements Initializable {
             }
             boolean allProductsUpdated = false;
             for (int i = 0; i < filledProducts.size(); i++) {
-                String filledProductQuery = "UPDATE uzsakytos_prekes SET fk_automobilis='" + choosedCarID + "' WHERE id='" + filledProducts.get(i).getId() + "';";
+                java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+                String filledProductQuery = "UPDATE uzsakytos_prekes SET fk_automobilis='" + choosedCarID + "', priskyrimo_data='"+ date + "' WHERE id='" + filledProducts.get(i).getId() + "';";           
                 boolean filledProductStatus = dbc.executeUpdate(filledProductQuery);
                 if (filledProductStatus) {
                     System.out.println("Pavyko atnaujinti " + filledProducts.get(i).getId() + " irasa.");

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -52,22 +53,19 @@
                           </rowConstraints>
                            <children>
                               <Label alignment="CENTER" prefHeight="37.0" prefWidth="100.0" text="Data" textAlignment="CENTER" />
-                              <DatePicker GridPane.columnIndex="1" />
+                              <DatePicker fx:id="date" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <Button fx:id="generateReport" layoutX="193.0" layoutY="80.0" mnemonicParsing="false" text="Gauti ataskaitą" />
-                        <TableView layoutX="14.0" layoutY="114.0" prefHeight="220.0" prefWidth="450.0">
-                          <columns>
-                            <TableColumn prefWidth="46.0" text="ID" />
-                            <TableColumn prefWidth="97.0" text="Prekės kodas" />
-                              <TableColumn prefWidth="89.0" text="Užsakovas" />
-                              <TableColumn minWidth="0.0" prefWidth="130.0" text="Pristatymo adresas" />
-                              <TableColumn minWidth="0.0" prefWidth="85.0" text="Atvežta laiku" />
-                          </columns>
-                        </TableView>
-                        <Button fx:id="accept" layoutX="180.0" layoutY="356.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Patvirtinti" />
+                        <Button fx:id="generateReport" layoutX="193.0" layoutY="80.0" mnemonicParsing="false" onAction="#generateReportButton" text="Gauti ataskaitą" />
+                        <TableView fx:id="table" layoutX="14.0" layoutY="114.0" prefHeight="220.0" prefWidth="450.0" />
+                        <Button fx:id="accept" layoutX="180.0" layoutY="356.0" mnemonicParsing="false" onAction="#acceptButton" prefHeight="25.0" prefWidth="120.0" text="Patvirtinti" />
                         <Label layoutX="352.0" layoutY="84.0" text="Būsena:" />
-                        <Label layoutX="405.0" layoutY="84.0" text="Nežinoma" />
+                        <Label fx:id="state" layoutX="405.0" layoutY="84.0" text="Nežinoma" />
+                        <Label fx:id="label" layoutX="179.0" layoutY="393.0" prefHeight="17.0" prefWidth="280.0" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
           </children>

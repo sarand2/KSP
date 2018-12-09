@@ -16,6 +16,8 @@ public class OrderedProduct {
     private SimpleStringProperty weight;
     private SimpleStringProperty count;
     private SimpleStringProperty address;
+    private SimpleStringProperty date;
+    private SimpleStringProperty delivered;
     private SimpleStringProperty fk_product;
     private SimpleStringProperty fk_user;
     private SimpleStringProperty fk_route;
@@ -51,6 +53,35 @@ public class OrderedProduct {
         this.fk_automobilis = new SimpleStringProperty(fk_automobilis);
     }
 
+    public OrderedProduct(String id, String weight, String count, String address, String date, String delivered, String fk_product, String fk_user, String fk_route, String fk_automobilis) {
+        this.id = new SimpleStringProperty(id);
+        this.weight = new SimpleStringProperty(weight);
+        this.count = new SimpleStringProperty(count);
+        this.address = new SimpleStringProperty(address);
+        this.fk_product = new SimpleStringProperty(fk_product);
+        this.fk_user = new SimpleStringProperty(fk_user);
+        this.fk_route = new SimpleStringProperty(fk_route);
+        this.fk_automobilis = new SimpleStringProperty(fk_automobilis);
+        this.date = new SimpleStringProperty(date);
+        this.delivered = new SimpleStringProperty(delivered);
+    }
+    
+    public String getDate() {
+        return date.getValue();
+    }
+
+    public void setDate(String date) {
+        this.date = new SimpleStringProperty(date);
+    }
+
+    public String getDelivered() {
+        return delivered.getValue();
+    }
+
+    public void setDelivered(String delivered) {
+        this.delivered = new SimpleStringProperty(delivered);
+    }
+    
     public String getFk_automobilis() {
         return fk_automobilis.getValue();
     }

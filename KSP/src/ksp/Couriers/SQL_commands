@@ -1,0 +1,6 @@
+
+//Isvalyti uzsakytos prekes
+UPDATE `uzsakytos_prekes` SET `fk_marsrutas` = '-1', `fk_automobilis` = '-1' WHERE `uzsakytos_prekes`.`id` = 1
+UPDATE `uzsakytos_prekes` SET `fk_marsrutas` = '-1', `fk_automobilis` = '-1' WHERE `uzsakytos_prekes`.`id` = 2
+UPDATE `uzsakytos_prekes` SET `fk_marsrutas` = '-1', `fk_automobilis` = '-1' WHERE `uzsakytos_prekes`.`id` = 3
+UPDATE `uzsakytos_prekes` SET `fk_marsrutas` = '-1', `fk_automobilis` = '-1' WHERE `uzsakytos_prekes`.`id` = 4
