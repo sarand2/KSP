@@ -88,7 +88,7 @@ public class MainViewManager {
     private void showStorageView(final LoginManager loginManager, String sessionID) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("sandeliavimas.fxml")
+                getClass().getResource("sandeliavimas/sandeliavimas.fxml")
             );
             scene.setRoot((Parent) loader.load());
             stage.setMinWidth(500);
