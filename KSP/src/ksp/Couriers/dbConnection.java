@@ -110,5 +110,25 @@ public ResultSet getCategories() {
     return rs;
 }
 
+public ResultSet getWarehouses() {
+    try {
+        rs = st.executeQuery("SELECT * FROM sandeliai");
+    } catch(SQLException e) {
+        System.out.println("'SQLException:\n" + e.toString());
+        e.printStackTrace();
+    }
+    return rs;
+}
+
+public ResultSet getProducts() {
+    try {
+        rs = st.executeQuery("SELECT * FROM prekes");
+    } catch(SQLException e) {
+        System.out.println("'SQLException:\n" + e.toString());
+        e.printStackTrace();
+    }
+    return rs;
+}
+
 
 }

@@ -47,8 +47,6 @@ public class PridetiPrekeController implements Initializable {
     @FXML
     private TextField country;
     @FXML
-    private Button add;
-    @FXML
     private ComboBox category;
     @FXML
     private TextField length;
