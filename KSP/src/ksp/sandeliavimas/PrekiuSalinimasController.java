@@ -67,6 +67,7 @@ public class PrekiuSalinimasController implements Initializable {
             mainManager.navigateStorage(loginManager, sessionID);
         });
 
+        product.getItems().add("");
         ResultSet products = dbc.getProducts();
         try {
             while (products.next()) {
@@ -77,6 +78,7 @@ public class PrekiuSalinimasController implements Initializable {
             ex.printStackTrace();
         }
 
+        warehouse.getItems().add("");
         ResultSet warehouses = dbc.getWarehouses();
         try {
             while (warehouses.next()) {
@@ -166,8 +168,9 @@ public class PrekiuSalinimasController implements Initializable {
 
     @FXML
     public void selectProduct(ActionEvent event) {
-        if (warehouse.getValue() == null) {
+        if ((warehouse.getValue() == null || warehouse.getValue().toString().equals("")) && !product.getValue().toString().equals("")) {
             warehouse.getItems().clear();
+            warehouse.getItems().add("");
             String product = this.product.getValue().toString();
             String productCode = "";
             ResultSet products = dbc.getProducts();
@@ -197,8 +200,9 @@ public class PrekiuSalinimasController implements Initializable {
 
     @FXML
     public void selectWarehouse(ActionEvent event) {
-        if (product.getValue() == null) {
+        if ((product.getValue() == null || product.getValue().toString().equals("")) && !warehouse.getValue().toString().equals("")) {
             product.getItems().clear();
+            product.getItems().add("");
             String warehouse = this.warehouse.getValue().toString();
             ResultSet warehouses = dbc.getWarehouses();
             int warehouseId = 0;

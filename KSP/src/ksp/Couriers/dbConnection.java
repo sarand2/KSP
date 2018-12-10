@@ -133,6 +133,16 @@ public class dbConnection {
         return rs;
     }
 
+    public ResultSet getWarehouses(String product, boolean b) {
+        try {
+            rs = st.executeQuery(String.format("SELECT * FROM sandeliai INNER JOIN sandelio_prekes ON sandelio_prekes.sandelio_id=sandeliai.id WHERE sandelio_prekes.prekes_kodas!=\'%s\'", product));
+        } catch (SQLException e) {
+            System.out.println("'SQLException:\n" + e.toString());
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
     public ResultSet getProducts() {
         try {
             rs = st.executeQuery("SELECT * FROM prekes");
@@ -146,6 +156,16 @@ public class dbConnection {
     public ResultSet getProducts(int warehouse) {
         try {
             rs = st.executeQuery(String.format("SELECT * FROM prekes INNER JOIN sandelio_prekes ON sandelio_prekes.prekes_kodas=prekes.kodas WHERE sandelio_prekes.sandelio_id=%d", warehouse));
+        } catch (SQLException e) {
+            System.out.println("'SQLException:\n" + e.toString());
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public ResultSet getProducts(int warehouse, boolean b) {
+        try {
+            rs = st.executeQuery(String.format("SELECT * FROM prekes INNER JOIN sandelio_prekes ON sandelio_prekes.prekes_kodas=prekes.kodas WHERE sandelio_prekes.sandelio_id!=%d", warehouse));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();

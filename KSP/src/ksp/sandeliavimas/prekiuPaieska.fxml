@@ -42,7 +42,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <children>
-                        <Label layoutX="276.0" layoutY="14.0" text="Pasirinkite paieškos kriterijus" />
+                        <Label layoutX="20.0" layoutY="14.0" text="Pasirinkite paieškos kriterijus" />
                         <GridPane layoutX="20.0" layoutY="40.0" prefHeight="53.0" prefWidth="680.0">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -59,16 +59,16 @@
                               <Label text="Įveskite kodą" GridPane.columnIndex="1" />
                               <Label text="Pasirinkite kategoriją" GridPane.columnIndex="2" />
                               <Label text="Pasirinkite sandėlį" GridPane.columnIndex="3" />
-                              <TextField GridPane.rowIndex="1">
+                              <TextField fx:id="name" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="20.0" />
                                  </GridPane.margin></TextField>
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <TextField fx:id="code" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="20.0" />
                                  </GridPane.margin></TextField>
                               <ComboBox fx:id="category" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="warehouse" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <TableView layoutX="20.0" layoutY="110.0" prefHeight="324.0" prefWidth="680.0">
@@ -84,6 +84,7 @@
                               <TableColumn prefWidth="75.0" />
                           </columns>
                         </TableView>
+                        <Button fx:id="filter" layoutX="649.0" layoutY="10.0" mnemonicParsing="false" onAction="#filterButton" text="Filtruoti" />
                      </children>
                   </Pane>
           </children>

@@ -76,6 +76,7 @@ public class PridetiISandeliController implements Initializable {
             sandeliavimas.navigateAdd(mainManager, loginManager, sessionID);
         });
 
+        product.getItems().add("");
         ResultSet products = dbc.getProducts();
         try {
             while (products.next()) {
@@ -86,6 +87,7 @@ public class PridetiISandeliController implements Initializable {
             ex.printStackTrace();
         }
 
+        warehouse.getItems().add("");
         ResultSet warehouses = dbc.getWarehouses();
         try {
             while (warehouses.next()) {
@@ -162,6 +164,70 @@ public class PridetiISandeliController implements Initializable {
             }
         } else {
             message.setText("Prašome užpildyti visus laukelius.");
+        }
+    }
+
+    @FXML
+    public void selectProduct(ActionEvent event) {
+        if ((warehouse.getValue() == null || warehouse.getValue().toString().equals("")) && !product.getValue().toString().equals("")) {
+            warehouse.getItems().clear();
+            warehouse.getItems().add("");
+            String product = this.product.getValue().toString();
+            String productCode = "";
+            ResultSet products = dbc.getProducts();
+            try {
+                while (products.next()) {
+                    String p = products.getString("kodas") + " " + products.getString("pavadinimas");
+                    if (p.equals(product)) {
+                        productCode = products.getString("kodas");
+                    }
+                }
+            } catch (SQLException ex) {
+                System.out.println("ERROR: " + ex);
+                ex.printStackTrace();
+            }
+
+            ResultSet warehouses = dbc.getWarehouses(productCode);
+            try {
+                while (warehouses.next()) {
+                    warehouse.getItems().add(warehouses.getString("adresas") + ", " + warehouses.getString("miestas"));
+                }
+            } catch (SQLException ex) {
+                System.out.println("ERROR: " + ex);
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    public void selectWarehouse(ActionEvent event) {
+        if ((product.getValue() == null || product.getValue().toString().equals("")) && !warehouse.getValue().toString().equals("")) {
+            product.getItems().clear();
+            product.getItems().add("");
+            String warehouse = this.warehouse.getValue().toString();
+            ResultSet warehouses = dbc.getWarehouses();
+            int warehouseId = 0;
+            try {
+                while (warehouses.next()) {
+                    String w = warehouses.getString("adresas") + ", " + warehouses.getString("miestas");
+                    if (w.equals(warehouse)) {
+                        warehouseId = warehouses.getInt("id");
+                    }
+                }
+            } catch (SQLException ex) {
+                System.out.println("ERROR: " + ex);
+                ex.printStackTrace();
+            }
+
+            ResultSet products = dbc.getProducts(warehouseId);
+            try {
+                while (products.next()) {
+                    product.getItems().add(products.getString("kodas") + " " + products.getString("pavadinimas"));
+                }
+            } catch (SQLException ex) {
+                System.out.println("ERROR: " + ex);
+                ex.printStackTrace();
+            }
         }
     }
 
