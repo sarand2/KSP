@@ -8,6 +8,7 @@ package ksp.sandeliavimas;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -96,11 +97,11 @@ public class PridetiPrekeController implements Initializable {
 
     @FXML
     public void addButton(ActionEvent e) {
-        if (name.getText() != null && code.getText() != null &&
-                brand.getText() != null && category.getValue() != null &&
-                country.getText() != null && weigth.getText() != null &&
-                length.getText() != null && width.getText() != null &&
-                heigth.getText() != null) {
+        if (name.getText() != null && code.getText() != null
+                && brand.getText() != null && category.getValue() != null
+                && country.getText() != null && weigth.getText() != null
+                && length.getText() != null && width.getText() != null
+                && heigth.getText() != null) {
             String name = "\"" + this.name.getText() + "\"";
             String code = "\"" + this.code.getText() + "\"";
             String brand = "\"" + this.brand.getText() + "\"";
@@ -124,7 +125,9 @@ public class PridetiPrekeController implements Initializable {
                 System.out.println("ERROR: " + ex);
                 ex.printStackTrace();
             }
-
+            
+            Locale locale = new Locale("en", "US");
+            Locale.setDefault(locale);
             String query = "INSERT INTO prekes (kodas,pavadinimas,kategorija,prekes_zenklas,kilmes_salis,svoris,ilgis,plotis,aukstis) values(" + code + "," + name + "," + c + "," + brand + "," + country + "," + weigth + "," + length + "," + width + "," + heigth + ")";
             System.out.println("Sending query: " + query);
             boolean ok = dbc.executeUpdate(query);

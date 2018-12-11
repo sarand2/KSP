@@ -125,7 +125,7 @@ public class dbConnection {
 
     public ResultSet getWarehouses(String product) {
         try {
-            rs = st.executeQuery(String.format("SELECT * FROM sandeliai INNER JOIN sandelio_prekes ON sandelio_prekes.sandelio_id=sandeliai.id WHERE sandelio_prekes.prekes_kodas=\'%s\'", product));
+            rs = st.executeQuery(String.format("SELECT * FROM sandeliai, (SELECT * FROM sandelio_prekes WHERE sandelio_prekes.prekes_kodas=\'%s\') AS x WHERE x.sandelio_id!=sandeliai.id", product));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();
@@ -135,7 +135,17 @@ public class dbConnection {
 
     public ResultSet getWarehouses(String product, boolean b) {
         try {
-            rs = st.executeQuery(String.format("SELECT * FROM sandeliai INNER JOIN sandelio_prekes ON sandelio_prekes.sandelio_id=sandeliai.id WHERE sandelio_prekes.prekes_kodas!=\'%s\'", product));
+            rs = st.executeQuery(String.format("SELECT * FROM sandeliai INNER JOIN sandelio_prekes ON sandelio_prekes.sandelio_id=sandeliai.id WHERE sandelio_prekes.prekes_kodas=\'%s\'", product));
+        } catch (SQLException e) {
+            System.out.println("'SQLException:\n" + e.toString());
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    public ResultSet getWarehouses(int warehouse) {
+        try {
+            rs = st.executeQuery(String.format("SELECT * FROM sandeliai WHERE id!=%d", warehouse));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();
@@ -155,7 +165,7 @@ public class dbConnection {
 
     public ResultSet getProducts(int warehouse) {
         try {
-            rs = st.executeQuery(String.format("SELECT * FROM prekes INNER JOIN sandelio_prekes ON sandelio_prekes.prekes_kodas=prekes.kodas WHERE sandelio_prekes.sandelio_id=%d", warehouse));
+            rs = st.executeQuery(String.format("SELECT * FROM prekes, (SELECT * FROM sandelio_prekes WHERE sandelio_prekes.sandelio_id=%d) AS x WHERE x.prekes_kodas!=prekes.kodas", warehouse));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();
@@ -165,7 +175,7 @@ public class dbConnection {
 
     public ResultSet getProducts(int warehouse, boolean b) {
         try {
-            rs = st.executeQuery(String.format("SELECT * FROM prekes INNER JOIN sandelio_prekes ON sandelio_prekes.prekes_kodas=prekes.kodas WHERE sandelio_prekes.sandelio_id!=%d", warehouse));
+            rs = st.executeQuery(String.format("SELECT * FROM prekes INNER JOIN sandelio_prekes ON sandelio_prekes.prekes_kodas=prekes.kodas WHERE sandelio_prekes.sandelio_id=%d", warehouse));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();
@@ -175,7 +185,8 @@ public class dbConnection {
     
     public ResultSet getProductInWarehouse(int warehouse, String product) {
         try {
-            rs = st.executeQuery(String.format("SELECT * FROM sandelio_prekes WHERE sandelio_id=%d AND prekes_kodas=\'%s\' ", warehouse, product));
+            rs = st.executeQuery(String.format("SELECT * FROM sandelio_prekes WHERE sandelio_id=%d AND prekes_kodas=\'%s\'", warehouse, product));
+            System.out.println(String.format("SELECT * FROM sandelio_prekes WHERE sandelio_id=%d AND prekes_kodas=\'%s\'", warehouse, product));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();

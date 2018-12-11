@@ -168,7 +168,7 @@ public class PrekiuSalinimasController implements Initializable {
 
     @FXML
     public void selectProduct(ActionEvent event) {
-        if ((warehouse.getValue() == null || warehouse.getValue().toString().equals("")) && !product.getValue().toString().equals("")) {
+        if (warehouse.getValue() == null || warehouse.getValue().toString().equals("")) {
             warehouse.getItems().clear();
             warehouse.getItems().add("");
             String product = this.product.getValue().toString();
@@ -186,7 +186,7 @@ public class PrekiuSalinimasController implements Initializable {
                 ex.printStackTrace();
             }
 
-            ResultSet warehouses = dbc.getWarehouses(productCode);
+            ResultSet warehouses = dbc.getWarehouses(productCode, false);
             try {
                 while (warehouses.next()) {
                     warehouse.getItems().add(warehouses.getString("adresas") + ", " + warehouses.getString("miestas"));
@@ -200,7 +200,7 @@ public class PrekiuSalinimasController implements Initializable {
 
     @FXML
     public void selectWarehouse(ActionEvent event) {
-        if ((product.getValue() == null || product.getValue().toString().equals("")) && !warehouse.getValue().toString().equals("")) {
+        if (product.getValue() == null || product.getValue().toString().equals("")) {
             product.getItems().clear();
             product.getItems().add("");
             String warehouse = this.warehouse.getValue().toString();
@@ -218,7 +218,7 @@ public class PrekiuSalinimasController implements Initializable {
                 ex.printStackTrace();
             }
 
-            ResultSet products = dbc.getProducts(warehouseId);
+            ResultSet products = dbc.getProducts(warehouseId, false);
             try {
                 while (products.next()) {
                     product.getItems().add(products.getString("kodas") + " " + products.getString("pavadinimas"));
