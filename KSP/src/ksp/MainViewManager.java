@@ -1,5 +1,6 @@
 package ksp;
 
+import ksp.sandeliavimas.SandeliavimasController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ksp.sandeliavimas.SandeliavimasManager;
 
 /**
  *
@@ -75,7 +77,11 @@ public class MainViewManager {
         }
   }
     public void navigateStorage(final LoginManager loginManager, String sessionID) {
+        if (sessionID.contains("admin")) {
         showStorageView(loginManager, sessionID);
+        } else if (sessionID.contains("user")) {
+            showSearchView(loginManager, sessionID);
+        }
     }
 
     public void navigateControls(final LoginManager loginManager, String sessionID) {
@@ -87,7 +93,7 @@ public class MainViewManager {
     private void showStorageView(final LoginManager loginManager, String sessionID) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("sandeliavimas.fxml")
+                getClass().getResource("sandeliavimas/sandeliavimas.fxml")
             );
             scene.setRoot((Parent) loader.load());
             stage.setMinWidth(500);
@@ -102,6 +108,10 @@ public class MainViewManager {
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private void showSearchView(final LoginManager loginManager, String sessionId) {
+        new SandeliavimasManager(this.scene, this.stage).navigateSearch(this, loginManager, sessionId);
     }
 
     private void showControlsView(final LoginManager loginManager, String sessionID) {

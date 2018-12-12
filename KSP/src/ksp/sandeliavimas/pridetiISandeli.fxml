@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.PridetiISandeliController">
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ksp.sandeliavimas.PridetiISandeliController">
   <children>
     <StackPane>
       <children>
@@ -48,14 +48,15 @@
                      <children>
                         <TextField fx:id="price" layoutX="213.0" layoutY="156.0" />
                         <TextField fx:id="count" layoutX="213.0" layoutY="193.0" />
-                        <Button fx:id="add" layoutX="214.0" layoutY="254.0" mnemonicParsing="false" text="Pridėti" />
+                        <Button fx:id="add" layoutX="214.0" layoutY="254.0" mnemonicParsing="false" onAction="#addButton" text="Pridėti" />
                         <Label layoutX="133.0" layoutY="14.0" text="Pasirinkite pridedamos prekės duomenis" />
-                        <Label layoutX="128.0" layoutY="96.0" text="Prekės kodas" />
-                        <Label layoutX="128.0" layoutY="127.0" text="Sandėlio kodas" />
+                        <Label layoutX="128.0" layoutY="96.0" text="Prekė" />
+                        <Label layoutX="128.0" layoutY="127.0" text="Sandėlys" />
                         <Label layoutX="128.0" layoutY="160.0" text="Kaina" />
                         <Label layoutX="127.0" layoutY="197.0" text="Kiekis" />
-                        <ComboBox layoutX="212.0" layoutY="92.0" prefWidth="150.0" />
-                        <ComboBox layoutX="212.0" layoutY="123.0" prefWidth="150.0" />
+                        <ComboBox fx:id="product" layoutX="212.0" layoutY="92.0" onAction="#selectProduct" prefWidth="150.0" />
+                        <ComboBox fx:id="warehouse" layoutX="212.0" layoutY="123.0" onAction="#selectWarehouse" prefWidth="150.0" />
+                        <Label fx:id="message" layoutX="145.0" layoutY="228.0" prefHeight="17.0" prefWidth="214.0" textAlignment="CENTER" textFill="#f80000" />
                      </children>
                   </Pane>
           </children>

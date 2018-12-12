@@ -1,4 +1,4 @@
-package ksp;
+package ksp.sandeliavimas;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ksp.LoginManager;
+import ksp.MainViewManager;
 
 /**
  *
@@ -107,11 +109,11 @@ public class SandeliavimasManager {
                 getClass().getResource("prekiuPaieska.fxml")
             );
             scene.setRoot((Parent) loader.load());
-            stage.setMinWidth(720);
+            stage.setMinWidth(800);
             stage.setMinHeight(500);
-            stage.setMaxWidth(720);
+            stage.setMaxWidth(800);
             stage.setMaxHeight(500);
-            stage.setHeight(500);
+            stage.setHeight(800);
             stage.setWidth(720);
             PrekiuPaieskaController controller = 
                 loader.<PrekiuPaieskaController>getController();
