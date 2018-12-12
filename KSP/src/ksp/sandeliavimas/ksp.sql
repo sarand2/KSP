@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 09:19 PM
+-- Generation Time: Dec 11, 2018 at 09:27 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -155,7 +155,8 @@ INSERT INTO `prekes` (`kodas`, `pavadinimas`, `kategorija`, `prekes_zenklas`, `k
 ('2', 'Džemperis be užtrauktuko', 4, 'Proud', 'Kinija', 0.20, 0.40, 0.40, 0.20),
 ('3', 'Samsung protective case', 1, 'Strong', 'Kinija', 0.10, 0.30, 0.20, 0.05),
 ('5', 'Krepšinio kamuolys', 5, 'Spalding', 'Kinija', 0.20, 0.50, 0.50, 0.50),
-('6', 'Šaldytuvas', 7, 'Beco', 'Vokietija', 50.00, 1.00, 1.00, 1.00);
+('6', 'Šaldytuvas', 7, 'Beco', 'Vokietija', 50.00, 1.00, 1.00, 1.00),
+('KODAS', 'Test', 6, 'TST', 'Lietuva', 9000.00, 5.00, 2.00, 1.00);
 
 -- --------------------------------------------------------
 
@@ -167,9 +168,19 @@ DROP TABLE IF EXISTS `sandeliai`;
 CREATE TABLE `sandeliai` (
   `id` int(11) NOT NULL,
   `talpa` int(11) NOT NULL,
+  `uzimta` int(11) NOT NULL DEFAULT '0',
   `adresas` varchar(255) NOT NULL,
   `miestas` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sandeliai`
+--
+
+INSERT INTO `sandeliai` (`id`, `talpa`, `uzimta`, `adresas`, `miestas`) VALUES
+(1, 300, 61, 'Terminalo g. 7', 'Ramučiai'),
+(2, 400, 89, 'Vikingų gatvė 3', 'Vilnius'),
+(3, 500, 10, 'Minijos g. 180', 'Klaipėda');
 
 -- --------------------------------------------------------
 
@@ -185,6 +196,16 @@ CREATE TABLE `sandelio_prekes` (
   `kaina` double(6,2) NOT NULL,
   `kiekis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sandelio_prekes`
+--
+
+INSERT INTO `sandelio_prekes` (`id`, `sandelio_id`, `prekes_kodas`, `kaina`, `kiekis`) VALUES
+(1, 1, '1', 44.99, 40),
+(2, 2, '3', 14.79, 89),
+(3, 1, '6', 167.19, 10),
+(5, 3, '3', 14.79, 11);
 
 -- --------------------------------------------------------
 
@@ -303,13 +324,13 @@ ALTER TABLE `marsrutai`
 -- AUTO_INCREMENT for table `sandeliai`
 --
 ALTER TABLE `sandeliai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sandelio_prekes`
 --
 ALTER TABLE `sandelio_prekes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `uzsakytos_prekes`

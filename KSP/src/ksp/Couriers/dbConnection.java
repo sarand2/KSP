@@ -135,7 +135,7 @@ public class dbConnection {
 
     public ResultSet getWarehouses(String product, boolean b) {
         try {
-            rs = st.executeQuery(String.format("SELECT * FROM sandeliai INNER JOIN sandelio_prekes ON sandelio_prekes.sandelio_id=sandeliai.id WHERE sandelio_prekes.prekes_kodas=\'%s\'", product));
+            rs = st.executeQuery(String.format("SELECT * FROM sandeliai INNER JOIN sandelio_prekes ON sandelio_prekes.sandelio_id=sandeliai.id WHERE sandelio_prekes.prekes_kodas=\'%s\' GROUP BY sandeliai.id", product));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();
@@ -175,7 +175,7 @@ public class dbConnection {
 
     public ResultSet getProducts(int warehouse, boolean b) {
         try {
-            rs = st.executeQuery(String.format("SELECT * FROM prekes INNER JOIN sandelio_prekes ON sandelio_prekes.prekes_kodas=prekes.kodas WHERE sandelio_prekes.sandelio_id=%d", warehouse));
+            rs = st.executeQuery(String.format("SELECT * FROM prekes INNER JOIN sandelio_prekes ON sandelio_prekes.prekes_kodas=prekes.kodas WHERE sandelio_prekes.sandelio_id=%d GROUP BY kodas", warehouse));
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();
@@ -186,7 +186,30 @@ public class dbConnection {
     public ResultSet getProductInWarehouse(int warehouse, String product) {
         try {
             rs = st.executeQuery(String.format("SELECT * FROM sandelio_prekes WHERE sandelio_id=%d AND prekes_kodas=\'%s\'", warehouse, product));
-            System.out.println(String.format("SELECT * FROM sandelio_prekes WHERE sandelio_id=%d AND prekes_kodas=\'%s\'", warehouse, product));
+        } catch (SQLException e) {
+            System.out.println("'SQLException:\n" + e.toString());
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    public ResultSet getProductSearchResults(String name, String code, int category, int warehouse) {
+        String query = "SELECT prekes.kodas, prekes.pavadinimas, sandelio_prekes.kaina, sandeliai.adresas, sandeliai.miestas, kategorijos.pavadinimas AS kategorija, prekes.prekes_zenklas, prekes.kilmes_salis, sandelio_prekes.kiekis FROM sandelio_prekes, prekes, sandeliai, kategorijos WHERE sandelio_prekes.prekes_kodas=prekes.kodas AND sandelio_prekes.sandelio_id=sandeliai.id AND prekes.kategorija=kategorijos.id";
+        if (name != null) {
+            query = query + String.format(" AND prekes.pavadinimas LIKE \'%%%s%%\'", name);
+        }
+        if (code != null) {
+            query = query + String.format(" AND prekes.kodas LIKE \'%%%s%%\'", code);
+        }
+        if (category != -1) {
+            query = query + String.format(" AND prekes.kategorija=%d", category);
+        }
+        if (warehouse != -1) {
+            query = query + String.format(" AND sandelio_prekes.sandelio_id=%d", warehouse);
+        }
+        
+        try {
+            rs = st.executeQuery(query);
         } catch (SQLException e) {
             System.out.println("'SQLException:\n" + e.toString());
             e.printStackTrace();

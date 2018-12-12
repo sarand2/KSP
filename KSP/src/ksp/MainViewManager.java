@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ksp.sandeliavimas.SandeliavimasManager;
 
 /**
  *
@@ -76,7 +77,11 @@ public class MainViewManager {
         }
   }
     public void navigateStorage(final LoginManager loginManager, String sessionID) {
+        if (sessionID.contains("admin")) {
         showStorageView(loginManager, sessionID);
+        } else if (sessionID.contains("user")) {
+            showSearchView(loginManager, sessionID);
+        }
     }
 
     public void navigateControls(final LoginManager loginManager, String sessionID) {
@@ -103,6 +108,10 @@ public class MainViewManager {
         } catch (IOException ex) {
             Logger.getLogger(MainViewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private void showSearchView(final LoginManager loginManager, String sessionId) {
+        new SandeliavimasManager(this.scene, this.stage).navigateSearch(this, loginManager, sessionId);
     }
 
     private void showControlsView(final LoginManager loginManager, String sessionID) {
