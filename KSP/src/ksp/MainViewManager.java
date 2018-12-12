@@ -157,7 +157,7 @@ public class MainViewManager {
   private void showAcountingViewCourier(final LoginManager loginManager, String sessionID){
       try {
             FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("apskaita/CourierView.fxml")
+                getClass().getResource("apskaita/courierView.fxml")
             );
             scene.setRoot((Parent) loader.load());
             stage.setMinWidth(500);
@@ -177,7 +177,7 @@ public class MainViewManager {
   private void showAcountingViewUser(final LoginManager loginManager, String sessionID){
       try {
             FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("apskaita/UserView.fxml")
+                getClass().getResource("apskaita/userView.fxml")
             );
             scene.setRoot((Parent) loader.load());
             stage.setMinWidth(500);
